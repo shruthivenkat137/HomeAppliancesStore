@@ -1,0 +1,21 @@
+<!--<img class="image-fluid productbg" src="assets/productbg.jpg" alt="product" width="100%" height="100%" />
+-->
+<div class="content">
+  <div class="row hcard">
+    <div *ngFor="let product of products" class="col-md-6 col-xl-4">
+      <div class="card vcard" style="width: 20rem">
+        <img class="card-img-top" src="{{ product?.productImgUrl }}" alt="Card image cap" style="height: 18rem" />
+        <div class="card-body cbody">
+          <h5 class="card-title">{{ product?.productName }}</h5>
+          <p class="card-text">Rs. {{ product.productPrice }}</p>
+        </div>
+
+        <div class="card-footer cfoot">
+          <a [routerLink]="['/admin/editproduct/', product.productId]" routerLinkActive="router-link-active" role="button"><i
+              class="bi bi-pencil-square edit"></i></a>
+          <a role="button" (click)="deleteProduct(product.productId)"><i class="bi bi-trash-fill delete"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

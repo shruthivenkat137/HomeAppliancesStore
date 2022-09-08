@@ -1,0 +1,24 @@
+body{
+  background-color: #371B58;
+
+}
+
+.white {
+  color: #fff;
+}
+h3 {
+  margin-top: 5%;
+  text-align: center;
+  color: rgb(2, 1, 7);
+  font-size: 35px;
+}
+
+.badd {
+  margin-left: 40%;
+  margin-top: 1%;
+}
+
+.bview {
+  margin-left: 5%;
+  margin-top: 1%;
+}

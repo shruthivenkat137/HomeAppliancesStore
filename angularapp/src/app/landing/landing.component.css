@@ -1,0 +1,29 @@
+.white{
+    color: white;
+}
+.content{
+    background-color: #371B58;
+    height: 85vh;
+    justify-content: center;
+}
+
+.card1{
+    
+    margin-top: 5%;
+    align-content: cente7;
+}
+.card2{
+    margin-top: 8%;
+    margin-left: 2%;
+    align-content: center;
+}
+
+
+.btn1{
+    margin-left: 25%;
+}
+
+
+.foottext{
+    color: white;
+}

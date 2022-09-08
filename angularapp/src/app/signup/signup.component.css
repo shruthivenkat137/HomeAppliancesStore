@@ -1,0 +1,44 @@
+.white{
+    color:white;
+}
+
+.content1{
+    background-color: #371B58;
+    height: 92.5vh;
+    justify-content: center;
+    padding-top: 3%;
+    
+}
+
+.loginhead{
+    margin-left: 22%;
+   }
+
+   
+   .card3{
+       margin-left: 15%;
+      
+       align-content: cente7;
+   }
+   .card4{
+      
+       margin-left: 2%;
+       align-content: center;
+   }
+   .btn1{
+       margin-left: 25%;
+       margin-top: 20%;
+   }
+   
+   .formlog{
+   margin-top: 5%;
+   }
+   
+   
+
+@media(max-width: 380px) {
+    .wrapper {
+        margin: 30px 20px;
+        padding: 40px 15px 15px 15px
+    }
+}

@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand nav-link white" href="#"><b>HAPP</b><i>'y</i> Store</a>
+   </div>
+</nav>  
+<div class="content1">
+<div class="card mb-3 card3" style="max-width: 1000px;">
+    <div class="row g-0">
+      <div class="col-md-6">
+        <img src="assets/Mobile-login.png" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body card4">
+
+<form class="container">
+  
+    <h1 class="loginhead">SIGN UP</h1>
+    <div class=" row formlog">
+        <div class="col-4 headers">
+      <label for="fullName">Full Name</label></div>
+      <div class="col-8">
+      <input type="text"  
+      ngModel name="fullName" 
+      required
+      #fullName="ngModel"  
+       id="fullname"  
+       placeholder="Enter Full Name"
+       class="form-control"
+       pattern="[A-Za-z]+"
+       >
+    <div 
+    class="alert alert-danger" 
+    role="alert"
+    *ngIf="fullName.touched && !fullName.valid"
+    >
+    Full Name is required!
+</div></div>
+    </div>
+    
+    <div class=" row formlog">
+        <div class="col-4 headers">
+    <label for="userName">User Name</label></div>
+    <div class="col-8">
+    <input type="text"  
+    ngModel name="userName" 
+    required
+    #userName="ngModel"  
+     id="username"  
+     placeholder="Enter User Name"
+     class="form-control"
+     pattern="[A-Za-z]+"
+     >
+  <div 
+  class="alert alert-danger" 
+  role="alert"
+  *ngIf="userName.touched && !userName.valid"
+  >
+  User Name is required!
+
+</div></div>
+</div>
+
+<div class=" row formlog">
+    <div class="col-4 headers">
+        <label for="email"> E-MAIL</label></div>
+        <div class="col-8">
+        <input 
+            type="email"  
+            ngModel name="email"
+            required 
+            #email="ngModel"   
+            id="email" 
+            placeholder="E-MAIL"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            class="form-control">
+      <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="email.touched && !email.valid"
+    >
+      Please provide valid Email Id!
+    </div></div>
+      </div>
+      
+      <div class=" row formlog">
+        <div class="col-4 headers">
+        <label for="phoneno">Mobile Number</label></div>
+        <div class="col-8">
+        <input
+            type="text" 
+            minlength="10"
+            maxlength="10"
+            ngModel name="phoneno" 
+            required 
+            #phoneno="ngModel"   
+            id="phoneno"  
+            placeholder="Enter Mobile Number"
+            class="form-control">
+      <div class="alert alert-danger" 
+        role="alert"
+      *ngIf="phoneno.touched && !phoneno.valid">
+          Enter 10 digit Mobile Number!
+      </div>
+      </div></div>
+      
+      <div class=" row formlog">
+        <div class="col-4 headers">
+        <label for="password">Password</label></div>
+        <div class="col-8">
+        <input 
+            type="text"
+            ngModel name="password" 
+            required 
+            #password="ngModel"   
+            id="password" 
+            class="form-control"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{6,12}$"
+            placeholder="Enter password">
+      <div class="alert alert-danger" 
+        role="alert"
+        *ngIf="password.touched && !password.valid">
+            Should contain atleast 1Uppercase, 1Lowercase,1Number, 1Symbol (!@#$%^&*_=+-),Min 6 chars and Max 12 chars!
+    </div>
+        </div>
+      </div>
+      <button class="btn mt-3 btn1">Submit</button>
+</form>
+        </div>
+        </div></div></div></div>
