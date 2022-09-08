@@ -12,7 +12,7 @@
       <div class="col-md-6">
         <div class="card-body card4">
 
-<form class="container">
+<form class="container" #userform="ngForm" (ngSubmit)="onSubmit()">
   
     <h1 class="loginhead">SIGN UP</h1>
     <div class=" row formlog">
@@ -20,8 +20,9 @@
       <label for="fullName">Full Name</label></div>
       <div class="col-8">
       <input type="text"  
-      ngModel name="fullName" 
+      [(ngModel)]="user.fullName" 
       required
+      name="fullName"
       #fullName="ngModel"  
        id="fullname"  
        placeholder="Enter Full Name"
@@ -42,7 +43,7 @@
     <label for="userName">User Name</label></div>
     <div class="col-8">
     <input type="text"  
-    ngModel name="userName" 
+    [(ngModel)] ="user.userName" 
     required
     #userName="ngModel"  
      id="username"  
@@ -66,7 +67,7 @@
         <div class="col-8">
         <input 
             type="email"  
-            ngModel name="email"
+            [(ngModel)]="user.email"
             required 
             #email="ngModel"   
             id="email" 
@@ -87,10 +88,10 @@
         <label for="phoneno">Mobile Number</label></div>
         <div class="col-8">
         <input
-            type="text" 
+            type="tel" 
             minlength="10"
             maxlength="10"
-            ngModel name="phoneno" 
+            [(ngModel)]="user.phoneno" 
             required 
             #phoneno="ngModel"   
             id="phoneno"  
@@ -99,7 +100,8 @@
       <div class="alert alert-danger" 
         role="alert"
       *ngIf="phoneno.touched && !phoneno.valid">
-          Enter 10 digit Mobile Number!
+      <div *ngIf="phoneno.errors?.['required']">Phone number is required</div>
+      <div *ngIf="phoneno.errors?.['minlength']">Enter 10 digit Mobile Number!</div>
       </div>
       </div></div>
       
@@ -109,7 +111,7 @@
         <div class="col-8">
         <input 
             type="text"
-            ngModel name="password" 
+            [(ngModel)]="user.password" 
             required 
             #password="ngModel"   
             id="password" 
@@ -123,7 +125,12 @@
     </div>
         </div>
       </div>
-      <button class="btn mt-3 btn1">Submit</button>
+      <div class="row">
+      <button class="btn mt-3 btn1"
+      [disabled]="!userform.valid"
+      type="submit"
+      onsubmit="alert('User Registered Successfully!')">
+      Submit</button></div>
 </form>
         </div>
         </div></div></div></div>

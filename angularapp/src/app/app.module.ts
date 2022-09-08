@@ -11,6 +11,8 @@ import { AdminAddproductComponent } from './admin-addproduct/admin-addproduct.co
 import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
 import { AdminViewproductComponent } from './admin-viewproduct/admin-viewproduct.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserHomeComponent } from './user-home/user-home.component';
+import { AdminEditproductComponent } from './admin-editproduct/admin-editproduct.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminAddproductComponent,
     AdminHomePageComponent,
     AdminViewproductComponent,
+    UserHomeComponent,
+    AdminEditproductComponent,
   ],
   imports: [
     BrowserModule,

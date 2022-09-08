@@ -11,48 +11,50 @@
       </div>
       <div class="col-md-6">
         <div class="card-body card4">
-        <form  class="container">
+       
+<form class="container" #userform="ngForm" (ngSubmit)="onSubmit()">
     <h1 class="loginhead">Login</h1>
     <div class=" row formlog">
         <div class="col-4 headers">
-    <label for="userName">User Name</label></div>
-    <div class="col-8">
-    <input type="text"  
-    ngModel name="userName" 
-    required
-    #userName="ngModel"  
-     id="username"  
-     placeholder="Enter User Name"
-     class="form-control"
-     pattern="[A-Za-z]+"
-     >
-  <div 
-  class="alert alert-danger" 
-  role="alert"
-  *ngIf="userName.touched && !userName.valid"
-  >
-  User Name is required!
-
-</div></div>
+          <label for="userName">User Name</label></div>
+          <div class="col-8">
+          <input type="text"  
+          [(ngModel)] ="user.userName" 
+          required
+          #userName="ngModel"  
+           id="username"  
+           placeholder="Enter User Name"
+           class="form-control"
+           pattern="[A-Za-z]+"
+           >
+        <div 
+        class="alert alert-danger" 
+        role="alert"
+        *ngIf="userName.touched && !userName.valid"
+        >
+        User Name is required!
+      
+      </div></div>
 </div>
 <div class=" row formlog">
     <div class="col-4 headers">
-    <label for="password">Password</label></div>
-    <div class="col-8">
-    <input 
-        type="text"
-        ngModel name="password" 
-        required 
-        #password="ngModel"   
-        id="password" 
-        class="form-control"
-        placeholder="Enter password">
-  <div class="alert alert-danger" 
-    role="alert"
-    *ngIf="password.touched && !password.valid">
-        Password Required!
-</div>
-    </div>
+      <label for="password">Password</label></div>
+      <div class="col-8">
+      <input 
+          type="text"
+          [(ngModel)]="user.password" 
+          required 
+          #password="ngModel"   
+          id="password" 
+          class="form-control"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{6,12}$"
+          placeholder="Enter password">
+    <div class="alert alert-danger" 
+      role="alert"
+      *ngIf="password.touched && !password.valid">
+          Password Required!
   </div>
-    <button type="submit" class="btn mt-3 btn1">Login</button>
+      </div>
+    </div>
+    <button [disabled]="!userform.valid" type="submit" class="btn mt-3 btn1">Login</button>
     </form></div></div></div></div></div>

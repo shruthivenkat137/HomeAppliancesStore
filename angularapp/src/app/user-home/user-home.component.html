@@ -1,0 +1,17 @@
+<div class="content">
+  <div class="row hcard">
+    <div *ngFor="let product of products" class="col-md-6 col-xl-4">
+      <div class="card vcard" style="width: 20rem">
+        <img class="card-img-top" src="{{ product?.productImgUrl }}" alt="Card image cap" style="height: 18rem ;" />
+        <div class="card-body cbody">
+          <h5 class="card-title">{{ product?.productName }}</h5>
+          <p class="card-text">Rs. {{ product.productPrice }}</p>
+        </div>
+        <div class="card-footer cfoot">
+          <a class="btn btn-dark" [routerLink]="['/user/viewProduct',product.productId]" routerLinkActive="router-link-active"  role="button">View</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

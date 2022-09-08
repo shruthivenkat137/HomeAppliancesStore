@@ -6,13 +6,17 @@ import { SignupComponent } from './signup/signup.component';
 import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
 import { AdminAddproductComponent } from './admin-addproduct/admin-addproduct.component';
 import { AdminViewproductComponent } from './admin-viewproduct/admin-viewproduct.component';
+import { AdminEditproductComponent } from './admin-editproduct/admin-editproduct.component';
+import { UserHomeComponent } from './user-home/user-home.component';
 const routes: Routes = [
 {path:'',component:LandingComponent},
 { path: 'signup', component: SignupComponent },
 { path: 'login', component: LoginComponent },
 {path:'admin/home',component:AdminHomePageComponent},
 { path: 'admin/addproduct', component: AdminAddproductComponent },
-{path: 'admin/viewproducts',component:AdminViewproductComponent}];
+{path: 'admin/viewproducts',component:AdminViewproductComponent},
+{ path: 'admin/editproduct/:id', component: AdminEditproductComponent },
+{ path: 'user/home', component: UserHomeComponent },];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
