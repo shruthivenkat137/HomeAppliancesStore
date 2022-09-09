@@ -1,8 +1,9 @@
 export class Signup {
-    fullName : string;
+    fullName:String;
     userName:String;
     email : string;
     phoneno : string;
-    password : string;    
+    password : string;  
+    role:String;  
 }
 

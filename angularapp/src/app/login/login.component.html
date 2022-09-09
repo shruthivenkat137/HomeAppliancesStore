@@ -20,21 +20,23 @@
           <div class="col-8">
           <input type="text"  
           [(ngModel)] ="user.userName" 
+          name="userName"
           required
           #userName="ngModel"  
            id="username"  
            placeholder="Enter User Name"
            class="form-control"
-           pattern="[A-Za-z]+"
-           >
-        <div 
+        
+          >
+         <div 
         class="alert alert-danger" 
         role="alert"
         *ngIf="userName.touched && !userName.valid"
         >
         User Name is required!
       
-      </div></div>
+      </div> 
+    </div>
 </div>
 <div class=" row formlog">
     <div class="col-4 headers">
@@ -43,6 +45,7 @@
       <input 
           type="text"
           [(ngModel)]="user.password" 
+          name="password"
           required 
           #password="ngModel"   
           id="password" 

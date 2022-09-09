@@ -44,6 +44,7 @@
     <div class="col-8">
     <input type="text"  
     [(ngModel)] ="user.userName" 
+    name="userName"
     required
     #userName="ngModel"  
      id="username"  
@@ -51,14 +52,15 @@
      class="form-control"
      pattern="[A-Za-z]+"
      >
-  <div 
+  <!-- <div 
   class="alert alert-danger" 
   role="alert"
   *ngIf="userName.touched && !userName.valid"
   >
   User Name is required!
 
-</div></div>
+</div>-->
+</div> 
 </div>
 
 <div class=" row formlog">
@@ -68,6 +70,7 @@
         <input 
             type="email"  
             [(ngModel)]="user.email"
+            name="email"
             required 
             #email="ngModel"   
             id="email" 
@@ -92,6 +95,7 @@
             minlength="10"
             maxlength="10"
             [(ngModel)]="user.phoneno" 
+            name="phoneno"
             required 
             #phoneno="ngModel"   
             id="phoneno"  
@@ -114,17 +118,36 @@
             [(ngModel)]="user.password" 
             required 
             #password="ngModel"   
+            name="password"
             id="password" 
             class="form-control"
             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{6,12}$"
             placeholder="Enter password">
-      <div class="alert alert-danger" 
+       <div class="alert alert-danger" 
         role="alert"
         *ngIf="password.touched && !password.valid">
             Should contain atleast 1Uppercase, 1Lowercase,1Number, 1Symbol (!@#$%^&*_=+-),Min 6 chars and Max 12 chars!
-    </div>
+    </div> 
         </div>
       </div>
+      <!-- <div class=" row formlog">
+        <div class="col-4 headers">
+        <label for="password">Role</label></div>
+        <div class="col-8">
+        <input 
+            type="text"
+            [(ngModel)]="user.role" 
+            required 
+            name="role"
+            #role="ngModel"   
+            id="role" 
+            class="form-control"
+      
+            placeholder="Enter role">
+      
+        </div>
+      </div>
+     -->
       <div class="row">
       <button class="btn mt-3 btn1"
       [disabled]="!userform.valid"

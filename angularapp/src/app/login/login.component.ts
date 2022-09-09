@@ -24,12 +24,13 @@ export class LoginComponent implements OnInit {
   login() {
     this.signupService.login(this.user).subscribe(
       (data: any) => {
-        console.log(data.roles[0]);
-        if(data.roles[0]=="ROLE_USER")
+        console.log(data);
+        if(data.roles[0]=="ROLE_CUSTOMER")
         {
           this.router.navigate(['/user/home']);
         }
         else if(data.roles[0]=="ROLE_ADMIN")
+  
         {
           this.router.navigate(['/admin/home']);
         }

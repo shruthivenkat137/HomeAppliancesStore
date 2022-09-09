@@ -8,6 +8,7 @@ import { AdminAddproductComponent } from './admin-addproduct/admin-addproduct.co
 import { AdminViewproductComponent } from './admin-viewproduct/admin-viewproduct.component';
 import { AdminEditproductComponent } from './admin-editproduct/admin-editproduct.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { UserViewproductComponent } from './user-viewproduct/user-viewproduct.component';
 const routes: Routes = [
 {path:'',component:LandingComponent},
 { path: 'signup', component: SignupComponent },
@@ -16,8 +17,8 @@ const routes: Routes = [
 { path: 'admin/addproduct', component: AdminAddproductComponent },
 {path: 'admin/viewproducts',component:AdminViewproductComponent},
 { path: 'admin/editproduct/:id', component: AdminEditproductComponent },
-{ path: 'user/home', component: UserHomeComponent },];
-
+{ path: 'user/home', component: UserHomeComponent },
+{path:'user/viewproducts/:id',component: UserViewproductComponent}, ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

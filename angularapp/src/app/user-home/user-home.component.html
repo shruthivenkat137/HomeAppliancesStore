@@ -1,3 +1,32 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand nav-link white" href="#"><b>HAPP</b><i>'y</i> Store</a>
+    <div class="navbar-collapse offcanvas-collapse">
+      <ul class="navbar-nav ms-auto navbar-nav-scroll">
+        <li class="nav-item">
+          <a class="nav-link white"  [routerLink]="['/user/profile']"
+          routerLinkActive="router-link-active" >My profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link white">My Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link white" [routerLink]="['/user/cart']" >Cart</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link white"
+            [routerLink]="['/']"
+            routerLinkActive="router-link-active"
+            >Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <div class="content">
   <div class="row hcard">
     <div *ngFor="let product of products" class="col-md-6 col-xl-4">
@@ -8,7 +37,7 @@
           <p class="card-text">Rs. {{ product.productPrice }}</p>
         </div>
         <div class="card-footer cfoot">
-          <a class="btn btn-dark" [routerLink]="['/user/viewProduct',product.productId]" routerLinkActive="router-link-active"  role="button">View</a>
+          <a class="btn btn-dark" [routerLink]="['/user/viewproducts',product.productId]" routerLinkActive="router-link-active"  role="button">View</a>
         </div>
       </div>
     </div>

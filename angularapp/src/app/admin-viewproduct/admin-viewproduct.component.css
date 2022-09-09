@@ -1,9 +1,12 @@
+.white{
+color: white;
+}
 .hcard {
     margin-top: 5%;
     margin-right: 5%;
   }
   
-  .vcard {
+  .productcard {
     margin-left: 10%;
     margin-top: 10%;
   }
@@ -18,25 +21,27 @@
     height: 130px;
   }
   
-  .cfoot {
+  .editdelete {
     background-color: white;
     border: none;
     text-align: end;
   }
   
   .edit {
-    color: black;
+    color: grey;
     font-size: 25px;
     margin-right: 20px;
+    
   }
-  
-  .delete {
+  .edit:hover{
     color: black;
+  }
+  .delete {
+    color: grey;
     font-size: 25px;
     margin-right: 5px;
   }
   
-  .bookbg {
-    position: fixed;
+  .delete:hover{
+    color: black;
   }
-  

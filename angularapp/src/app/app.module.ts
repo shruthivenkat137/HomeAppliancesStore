@@ -13,6 +13,7 @@ import { AdminViewproductComponent } from './admin-viewproduct/admin-viewproduct
 import { HttpClientModule } from '@angular/common/http';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { AdminEditproductComponent } from './admin-editproduct/admin-editproduct.component';
+import { UserViewproductComponent } from './user-viewproduct/user-viewproduct.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AdminEditproductComponent } from './admin-editproduct/admin-editproduct
     AdminViewproductComponent,
     UserHomeComponent,
     AdminEditproductComponent,
+    UserViewproductComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,8 @@ public class SignupRequest {
 
     private String phoneno;
 
-    private Set<String> role;
+    // private Set<String> role;
+    private String role;
 
     public String getFullName() {
         return fullName;
@@ -59,12 +60,26 @@ public class SignupRequest {
         this.phoneno = phoneno;
     }
 
-    public Set<String> getRole() {
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Set<String> role) {
+    public void setRole(String role) {
         this.role = role;
     }
+
+    /*
+     * public Set<String> getRole() {
+     * return role;
+     * }
+     * 
+     * public void setRole(Set<String> role) {
+     * this.role = role;
+     * }
+     */
 
 }
