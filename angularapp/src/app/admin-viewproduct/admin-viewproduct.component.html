@@ -32,7 +32,6 @@
           <h5 class="card-title">{{ product?.productName }}</h5>
           <p class="card-text">Rs. {{ product.productPrice }}</p>
         </div>
-
         <div class="card-footer editdelete">
           <a [routerLink]="['/admin/editproduct/', product.productId]" routerLinkActive="router-link-active" role="button"><i
               class="bi bi-pencil-square edit"></i></a>

@@ -11,7 +11,7 @@ import { ProductService } from '../_services/product.service';
 export class AdminEditproductComponent implements OnInit {
 
   productId: number;
-  product: Product;
+  product: Product = new Product();
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router) { }
 
@@ -25,8 +25,9 @@ export class AdminEditproductComponent implements OnInit {
   getProductById(productId: number) {
     this.productService.getProductById(productId).subscribe(
       (data: any) => {
-        //console.log(data);
+        
         this.product = data;
+        console.log(this.product)
       },
       (error: any) => console.error(error)
     );

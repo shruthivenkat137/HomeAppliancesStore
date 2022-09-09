@@ -35,7 +35,7 @@ public class AdminController {
         return productService.updateProduct(product, productId);
     }
 
-    @GetMapping("/getProcuctById/{productId}")
+    @GetMapping("/getProductById/{productId}")
     public Product getProductById(@PathVariable int productId) {
         System.out.println(productService.getProductById(productId));
         return productService.getProductById(productId);

@@ -22,10 +22,10 @@ public class Customer {
     private String lastName;
     private String emailId;
     private String phoneno;
-    private String houseNo;
+    private String doorNo;
     private String streetName;
     private String areaName;
-    private String Landmark;
+    private String landmark;
     private String city;
     private String state;
     private String pincode;

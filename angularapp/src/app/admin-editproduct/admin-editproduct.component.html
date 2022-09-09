@@ -1,69 +1,71 @@
+
 <div class="content">
-    <form (ngSubmit)="onSubmit()" #editproduct="ngForm">
-      <div class="row">
-        <label>Product Name</label>
-      </div>
-      <div class="row">
-        <input
-          class="form-control border-dark"
-          type="text"
-          [(ngModel)]="product.productName"
-          name="productname"
-          #productName="ngModel"
-        />
-      </div>
-      <div class="row">
-        <label>product Description </label>
-      </div>
-      <div class="row">
-        <textarea
-          class="form-control border-dark textarea"
-          [(ngModel)]="product.productDescription"
-          rows="5"
-          name="productdescription"
-          #productdescription="ngModel"
-        ></textarea>
-      </div>
-  
-      <div class="row">
-        <label>product Image URL</label>
-      </div>
-      <div class="row">
-        <input
-          class="form-control border-dark"
-          type="text"
-          [(ngModel)]="product.productImgUrl"
-          name="imgurl"
-          #imageurl="ngModel"
-        />
-      </div>
-      
-      <div class="row">
-        <label>Product type</label>
-      </div>
-      <div class="row">
-        <input
-          class="form-control border-dark"
-          type="text"
-          [(ngModel)]="product.productType"
-          name="type"
-          #genre="ngModel"
-        />
-      </div>
-      <div class="row">
-        <label>Price</label>
-      </div>
-      <div class="row">
-        <input
-          class="form-control border-dark"
-          type="text"
-          [(ngModel)]="product.productPrice"
-          name="price"
-          #price="ngModel"
-        />
-      </div>
-      <div class="row">
-        <button type="submit" class="btn btn-dark subbtn">Submit</button>
-      </div>
-    </form>
-  </div>
+  <form (ngSubmit)="onSubmit()" #editproduct="ngForm">
+    <div class="row">
+      <label>Product Name</label>
+    </div>
+    <div class="row">
+      <input
+        class="form-control border-dark"
+        type="text"
+        [(ngModel)]="product.productName"
+        name="productname"
+        #productName="ngModel"
+      />
+    </div>
+    <div class="row">
+      <label>Product Description</label>
+    </div>
+    <div class="row">
+      <textarea
+        class="form-control border-dark textarea"
+        [(ngModel)]="product.productDescription"
+        rows="5"
+        name="productdescription"
+        #productdescription="ngModel"
+      ></textarea>
+    </div>
+
+    <div class="row">
+      <label>Product Image URL</label>
+    </div>
+    <div class="row">
+      <input
+        class="form-control border-dark"
+        type="text"
+        [(ngModel)]="product.productImgUrl"
+        name="imgurl"
+        #imgurl="ngModel"
+      />
+    </div>
+    
+    <div class="row">
+      <label>Product Type</label>
+    </div>
+    <div class="row">
+      <input
+        class="form-control border-dark"
+        type="text"
+        [(ngModel)]="product.productType"
+        name="type"
+        #type="ngModel"
+      />
+    </div>
+    <div class="row">
+      <label>Product Price</label>
+    </div>
+    <div class="row">
+      <input
+        class="form-control border-dark"
+        type="text"
+        [(ngModel)]="product.productPrice"
+        name="price"
+        #price="ngModel"
+      />
+    </div>
+    <div class="row">
+      <button type="submit" class="btn btn-dark subbtn">Submit</button>
+    </div>
+  </form>
+</div>
+
