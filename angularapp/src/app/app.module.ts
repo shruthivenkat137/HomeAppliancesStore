@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { AdminEditproductComponent } from './admin-editproduct/admin-editproduct.component';
 import { UserViewproductComponent } from './user-viewproduct/user-viewproduct.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UserViewproductComponent } from './user-viewproduct/user-viewproduct.co
     UserHomeComponent,
     AdminEditproductComponent,
     UserViewproductComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
