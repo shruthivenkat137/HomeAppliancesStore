@@ -12,9 +12,9 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "customer_contact")
 @Data
-public class Customer {
+public class CustomerContact {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long customerId;
@@ -22,15 +22,8 @@ public class Customer {
     private String lastName;
     private String emailId;
     private String phoneno;
-    private String doorNo;
-    private String streetName;
-    private String areaName;
-    private String landmark;
-    private String city;
-    private String state;
-    private String pincode;
     @OneToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name = "user", referencedColumnName = "id")
+    @JoinColumn(name = "user", referencedColumnName = "userId")
     private User user;
 
 }

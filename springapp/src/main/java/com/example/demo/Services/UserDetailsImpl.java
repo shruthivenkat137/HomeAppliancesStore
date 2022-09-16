@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    private Long userId;
 
     private String fullName;
 
@@ -30,9 +30,9 @@ public class UserDetailsImpl implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(Long id, String fullName, String userName, String email, String password, String phoneno,
+    public UserDetailsImpl(Long userId, String fullName, String userName, String email, String password, String phoneno,
             Collection<? extends GrantedAuthority> authorities) {
-        this.id = id;
+        this.userId = userId;
         this.fullName = fullName;
         this.userName = userName;
         this.email = email;
@@ -47,7 +47,7 @@ public class UserDetailsImpl implements UserDetails {
                 .collect(Collectors.toList());
 
         return new UserDetailsImpl(
-                user.getId(),
+                user.getUserId(),
                 user.getFullName(),
                 user.getUserName(),
                 user.getEmail(),
@@ -61,8 +61,8 @@ public class UserDetailsImpl implements UserDetails {
         return authorities;
     }
 
-    public long getId() {
-        return id;
+    public long getUserId() {
+        return userId;
     }
 
     public String getEmail() {
@@ -118,7 +118,7 @@ public class UserDetailsImpl implements UserDetails {
         if (o == null || getClass() != o.getClass())
             return false;
         UserDetailsImpl user = (UserDetailsImpl) o;
-        return Objects.equals(id, user.id);
+        return Objects.equals(userId, user.userId);
     }
 
 }

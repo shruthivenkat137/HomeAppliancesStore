@@ -1,9 +1,34 @@
-
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand logo-text booklogo" href="#"><b>HAPP</b><i>'y</i> Store</a>
+    <div class="navbar-collapse offcanvas-collapse">
+      <ul class="navbar-nav ms-auto navbar-nav-scroll">
+        <li class="nav-item">
+          <a class="nav-link white"  [routerLink]="['/user/profile']"
+          routerLinkActive="router-link-active" >My profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link white" [routerLink]="['/user/viewOrders']">My Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link white" [routerLink]="['/user/cart']" >Cart</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link white"
+            [routerLink]="['/']"
+            routerLinkActive="router-link-active"
+            (click)="logout()"
+            >Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="content">
     <div class="row">
-        <div *ngFor="let product of products" class="col-xl-6">
-            <img src="{{product.productImgUrl}}" alt="product" width="500px" height="550px">
-        </div>
+     
         <div class="col-xl-6">
             <h3>{{product.productName}}</h3><br>
             <p class="uv">Product description:</p>
@@ -12,13 +37,27 @@
             <p>{{product.productType}}</p>
             <p class="uv">Product Price:</p>
             <p>{{product.productPrice}}</p>
-            <div class="btn1">
-                <a class="btn btn-dark atc" href="#" role="button" (click)="addtocart()" >Add to cart    <i class="bi bi-cart4"></i></a>
-                <a class="btn btn-dark bn" href="#" role="button">Buy now    <i class="bi bi-bag-heart-fill"></i></a>
+            <div class="row">
+     
+              <div class="col-xl-5">
+            <p class="uv">Quantity:</p>
 
-            </div>
-            
-        </div>
-    </div>
-</div>
+            <button type="button" (click)="minus()">
+              <i class="bi bi-dash-lg"></i>
+          </button>
+          <input type="text" class="quantity" [value]="quantity" />
+          <button type="button" (click)="plus()">
+              <i class="bi bi-plus-lg"></i>
+          </button></div>
+                    <div class="col-xl-3 btn1">
+                            <a class="btn btn-dark "  role="button" (click)="addtocart()" >Add to cart    <i class="bi bi-cart4"></i></a>
+                    </div>
+                      </div>
+                        
+                    </div>
+                    <div class="col-xl-6">
+                      <img src="{{product.productImgUrl}}" alt="product" width="500px" height="550px" >
+                  </div>
+                </div>
+            <!-- </div> -->
 

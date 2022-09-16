@@ -7,5 +7,5 @@ import com.example.demo.Model.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
-
+    Product getById(int id);
 }

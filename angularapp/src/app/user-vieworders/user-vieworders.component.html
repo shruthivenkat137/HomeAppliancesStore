@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand logo-text booklogo" href="#"><b>HAPP</b><i>'y</i> Store</a>
+      <div class="navbar-collapse offcanvas-collapse">
+        <ul class="navbar-nav ms-auto navbar-nav-scroll">
+          <li class="nav-item">
+            <a class="nav-link white"  [routerLink]="['/user/profile']"
+            routerLinkActive="router-link-active" >My profile</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link white" [routerLink]="['/user/home']">Home</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link white" [routerLink]="['/user/cart']" >Cart</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link white"
+              [routerLink]="['/']"
+              routerLinkActive="router-link-active"
+              (click)="logout()"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="content">
+    <div class="row title" *ngIf="orderitems!=null">
+        <div class="col-3">
+            <b>Order Id</b>
+        </div>
+        <div class="col-7">
+           <b>Products</b>
+        </div>
+        <div class="col-2">
+           <b>Amount</b> 
+
+        </div>
+    </div>
+    <div *ngFor="let view of orderitems " class="space">
+        <div class="row">
+            <div class="col-3">
+                <p>{{view.orderId}}</p>
+            </div>
+            <div class="col-7">
+                <div *ngFor="let cart of view.cartItem">
+                    <p>{{cart.productName}}</p>
+                </div>
+            </div>
+            <div class="col-2">
+                <p>{{view.amount}}</p>
+    
+            </div>
+        </div>
+        <hr>
+        
+       
+    
+            
+        
+    </div>
+    
+</div>

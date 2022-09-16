@@ -1,0 +1,27 @@
+.content{
+    margin-left: 10%;
+    margin-right: 18%;
+    margin-top: 5%;
+}
+
+.title{
+    background-color: #371B58;
+    color: aliceblue;
+} 
+
+.space{
+    margin-top: 5%;
+    text-align: center;
+}
+
+.margin{
+    margin-top: 2%;
+}
+
+.white{
+    color: white;
+}
+h3{
+ text-align: center;
+ margin-top: 4%;
+}

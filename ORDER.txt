@@ -1,0 +1,322 @@
+OrderServiceImpl.java
+
+package com.example.demo.Services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.example.demo.Model.CartItem;
+import com.example.demo.Model.Order;
+import com.example.demo.Model.User;
+import com.example.demo.Payload.request.PurchaseRequest;
+import com.example.demo.Payload.response.PurchaseResponse;
+import com.example.demo.Repository.AddressRepository;
+import com.example.demo.Repository.CustomerContactRepository;
+import com.example.demo.Repository.OrderRepository;
+import com.example.demo.Repository.ProductRepository;
+import com.example.demo.Repository.UserRepository;
+
+import java.util.List;
+import java.util.UUID;
+
+/**
+ * @author <a href="https://github.com/ouhamzalhss"> Lhouceine OUHAMZA </a>
+ */
+@Service
+public class OrderServiceImpl implements OrderService {
+
+    @Autowired
+    OrderRepository orderRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    ProductRepository productRepository;
+
+    @Autowired
+    AddressRepository addressRepository;
+    @Autowired
+    CustomerContactRepository customerContactRepository;
+
+    private CartItem purchaseRequest;
+
+    @Autowired
+    public OrderServiceImpl(CustomerContactRepository customerContactRepository) {
+        this.customerContactRepository = customerContactRepository;
+    }
+
+    @Override
+    @Transactional
+    public PurchaseResponse placeOrder(PurchaseRequest purchase) {
+
+        // retrieve the order info from dto
+        Order order = purchaseRequest.getOrder();
+
+        // generate tracking number
+        String orderTrackingNumber = generateOrderTrackingNumber();
+        order.setOrderTrackingNumber(orderTrackingNumber);
+
+        // -----;
+        // order.setUser(userRepository.getByUserid(purchaseRequest.getUserId()));
+        // //findById(orderRequest.getUserId()).get());
+        // order.setAddress(addressRepository.findAddressByUser(purchaseRequest.getUserId()));
+        // // findByUser(userRepository.findById(orderRequest.getUserId()).get()));
+        // // User user=order.
+        // order.setCartItem(cartItem);
+        // System.out.println(order.toString());
+        // ---;
+
+        // return orderRepository.save(order);
+
+        // populate order with orderItems
+        List<CartItem> cartItems = purchase.getCartItems();
+        cartItems.forEach(item -> order.add(item));
+
+        // populate order with shippingAddress and billingAddress
+        order.setAddress(purchase.getAddress());
+        // order.setShippingAddress(purchase.getShippingAddress());
+
+        // populate customer with order
+        User user = purchase.getUser();
+        user.add(order);
+
+        // save to the database
+        customerContactRepository.save(customerContactRepository);
+
+        // return a response
+        return new PurchaseResponse(orderTrackingNumber);
+    }
+
+    private String generateOrderTrackingNumber() {
+
+        // generate a random UUID (UUID version-4)
+        return UUID.randomUUID().toString();
+    }
+}
+
+
+OrderSevice.java
+package com.example.demo.Services;
+
+//import com.example.demo.Model.Order;
+import com.example.demo.Payload.request.PurchaseRequest;
+import com.example.demo.Payload.response.PurchaseResponse;
+
+public interface OrderService {
+    // Order placeOrder(OrderRequest orderRequest);
+
+    PurchaseResponse placeOrder(PurchaseRequest purchase);
+}
+
+
+OrderRepository.java
+package com.example.demo.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.Model.Order;
+
+@Repository
+public interface OrderRepository extends JpaRepository<Order, Long> {
+               
+}
+
+
+Payload-->PurchaseRequest.java
+package com.example.demo.Payload.request;
+
+import java.util.List;
+
+import com.example.demo.Model.Address;
+import com.example.demo.Model.CartItem;
+import com.example.demo.Model.Order;
+import com.example.demo.Model.User;
+
+import lombok.Data;
+
+@Data
+public class PurchaseRequest {
+
+    private User user;
+    private Address address;
+    private Order order;
+    private List<CartItem> cartItems;
+    private Double totalAmount;
+
+    public Double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    // public List<CartItem> getCartItems() {
+    // return null;
+    // }
+    // public Address getAddress() {
+    // return null;
+    // }
+    // public User getUser() {
+    // return null;
+    // }
+
+}
+
+PurchaseResponse.java
+package com.example.demo.Payload.response;
+
+import lombok.Data;
+import lombok.NonNull;
+
+@Data
+public class PurchaseResponse {
+
+    @NonNull
+    private String orderTrackingNumber;
+}
+
+Model-->Order.java
+package com.example.demo.Model;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import lombok.Data;
+
+@Entity
+@Data
+@Table(name = "order_details")
+public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String orderTrackingNumber;
+    private Double totalAmount;
+
+    @ManyToOne
+    @JoinColumn(name = "user", referencedColumnName = "userId")
+    private User user;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    // @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private List<Cart> cartItem;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
+
+    @Column(name = "created_date")
+    @CreationTimestamp
+    private Date createdDate;
+
+    public Order(Long id, User user, List<Cart> cartItem, Double totalAmount, Address address, Date createdDate,
+            String orderTrackingNumber) {
+        this.id = id;
+        this.user = user;
+        this.cartItem = cartItem;
+        this.totalAmount = totalAmount;
+        this.address = address;
+        this.createdDate = createdDate;
+        this.orderTrackingNumber = orderTrackingNumber;
+
+    }
+
+    public String getOrderTrackingNumber() {
+        return this.orderTrackingNumber;
+    }
+
+    public void setOrderTrackingNumber(String orderTrackingNumber) {
+        this.orderTrackingNumber = orderTrackingNumber;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Cart> getCartItem() {
+        return cartItem;
+    }
+
+    public void setCartItem(List<Cart> cartItem) {
+        this.cartItem = cartItem;
+    }
+
+    public Double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Order() {
+    }
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
+    private List<CartItem> cartItems = new ArrayList<>();
+
+    public void add(CartItem item) {
+        if (item != null) {
+            if (cartItems == null) {
+                cartItems = new ArrayList<>();
+            }
+            cartItems.add(item);
+            item.setOrder(this);
+        }
+    }
+}
+UserController
+
+    @PostMapping("/placeorder")
+    public PurchaseResponse purchase(@RequestBody PurchaseRequest purchase) {
+        PurchaseResponse response = this.orderService.placeOrder(purchase);
+        return response;
+    }

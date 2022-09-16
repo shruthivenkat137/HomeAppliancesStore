@@ -10,6 +10,11 @@ import { AdminEditproductComponent } from './admin-editproduct/admin-editproduct
 import { UserHomeComponent } from './user-home/user-home.component';
 import { UserViewproductComponent } from './user-viewproduct/user-viewproduct.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserCartComponent } from './user-cart/user-cart.component';
+import { PlaceOrderComponent } from './place-order/place-order.component';
+import { UserViewOrdersComponent } from './user-vieworders/user-vieworders.component';
+import { AdminViewOrdersComponent } from './admin-vieworders/admin-vieworders.component';
+
 const routes: Routes = [
 {path:'',component:LandingComponent},
 { path: 'signup', component: SignupComponent },
@@ -21,7 +26,12 @@ const routes: Routes = [
 { path: 'user/home', component: UserHomeComponent },
 {path:'user/viewproducts/:id',component: UserViewproductComponent}, 
 {path:'user/viewprosucts',component:UserProfileComponent},
-{path:'user/addCustomer',component:UserProfileComponent},];
+{path:'user/addCustomer',component:UserProfileComponent},
+{path:'user/cart',component:UserCartComponent},
+{path:'user/placeOrder',component:PlaceOrderComponent},
+{path:'user/profile',component:UserProfileComponent},
+{path:'user/viewOrders',component:UserViewOrdersComponent},
+{path:'admin/viewOrders',component:AdminViewOrdersComponent}];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -1,23 +1,32 @@
 
 package com.example.demo.Payload.request;
 
-import java.util.Set;
-
 import javax.validation.constraints.*;
 
 public class SignupRequest {
 
     private String fullName;
+    @NotEmpty
+    @Size(min = 2, max = 20, message = "name must have atleast 2 characters")
     private String userName;
 
+    @NotEmpty
     @Email
     private String email;
 
+    @NotEmpty
+    @Pattern(regexp = "^(?=.*[0-9])"
+            + "(?=.*[a-z])(?=.*[A-Z])"
+            + "(?=.*[@#$%^&+=])"
+            + "(?=\\S+$).{8,20}$", message = "password should have atleast a upper and a lower case alphabeta number and a special character")
+    @Size(min = 5, max = 20, message = "password should have atleast 5 characters")
     private String password;
 
+    @NotEmpty
+    @Pattern(regexp = "(0/91)?[6-9][0-9]{9}", message = "Mobile number  is invalid")
+    @Size(min = 10, max = 10)
     private String phoneno;
 
-    // private Set<String> role;
     private String role;
 
     public String getFullName() {
@@ -71,15 +80,5 @@ public class SignupRequest {
     public void setRole(String role) {
         this.role = role;
     }
-
-    /*
-     * public Set<String> getRole() {
-     * return role;
-     * }
-     * 
-     * public void setRole(Set<String> role) {
-     * this.role = role;
-     * }
-     */
 
 }

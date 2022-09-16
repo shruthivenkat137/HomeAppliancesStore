@@ -20,7 +20,7 @@
   <div class="card mb-3 card1" style="max-width: 1000px;">
     <div class="row g-0">
       <div class="col-md-6">
-        <img src="assets/landing-img.png" class="img-fluid rounded-start" alt="...">
+        <img src="assets\landing-img.png" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-md-6">
         <div class="card-body card2">
@@ -29,7 +29,7 @@
           <h4 class="card-text">All <b>H</b>ome <b>APP</b>liances under one Roof </h4><br><br>
             <h4 class="card-text">To make work <b>EASY</b> and Life <b>HAPPy</b></h4><br>
             <h5>You heard it RIGHT!</h5><br><br>
-            <a class="btn btn-light btn1" href="login.html" role="button">Shop Now!</a>
+            <a class="btn btn-light btn1"  role="button" [routerLink]="['/login']" routerLinkActive="router-link-active" >Shop Now!</a>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
 
 </div>
 </div>
-<div class="footer bg-dark footer1">
+<div class="footer bg-light footer1">
 
   <div class="footer-copyright text-center py-3 foottext">© 2022 Copyright:
     <a href="/">www.Happystore.com</a>

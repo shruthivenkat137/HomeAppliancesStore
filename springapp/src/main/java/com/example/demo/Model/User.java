@@ -1,7 +1,11 @@
 package com.example.demo.Model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
@@ -32,7 +37,7 @@ public class User {
     @Id
 
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long userId;
     private String fullName;
     private String userName;
     @Email
@@ -58,12 +63,12 @@ public class User {
         this.phoneno = phoneno;
     }
 
-    public long getId() {
-        return this.id;
+    public long getUserId() {
+        return this.userId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getFullName() {
@@ -113,4 +118,17 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    // @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    // private List<Order> orders = new ArrayList<>();
+
+    // public void add(Order order) {
+    // if (order != null) {
+    // if (orders == null) {
+    // orders = new ArrayList<>();
+    // }
+    // orders.add(order);
+    // order.setUser(this);
+    // }
+    // }
 }

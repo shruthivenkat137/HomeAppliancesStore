@@ -3,13 +3,14 @@
 }
 
 .content1{
-    background-color: #371B58;
+    /* background-color: #371B58; */
     height: 92.5vh;
     justify-content: center;
     padding-top: 3%;
     
 }
 
+  
 .loginhead{
     margin-left: 22%;
    }
@@ -27,14 +28,18 @@
    }
    .btn1{
        margin-left: 25%;
-       margin-top: 20%;
+       margin-top: 25%;
    }
    
    .formlog{
    margin-top: 5%;
    }
    
-   
+   .loginlink {
+    font-weight: 600;
+    margin-top: 2%;
+    margin-left: 20%;
+  }
 
 @media(max-width: 380px) {
     .wrapper {

@@ -16,7 +16,7 @@
     <h1 class="loginhead">Login</h1>
     <div class=" row formlog">
         <div class="col-4 headers">
-          <label for="userName">User Name</label></div>
+          <label for="userName"><b>USER NAME</b></label></div>
           <div class="col-8">
           <input type="text"  
           [(ngModel)] ="user.userName" 
@@ -40,7 +40,7 @@
 </div>
 <div class=" row formlog">
     <div class="col-4 headers">
-      <label for="password">Password</label></div>
+      <label for="password"><b>PASSWORD</b></label></div>
       <div class="col-8">
       <input 
           type="text"
@@ -60,4 +60,8 @@
       </div>
     </div>
     <button [disabled]="!userform.valid" type="submit" class="btn mt-3 btn1">Login</button>
+    <p class="signuplink">
+      New User?<a  [routerLink]="['/signup']" routerLinkActive="router-link-active" >
+        Sign up!</a>
+    </p>
     </form></div></div></div></div></div>

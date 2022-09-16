@@ -15,6 +15,11 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { AdminEditproductComponent } from './admin-editproduct/admin-editproduct.component';
 import { UserViewproductComponent } from './user-viewproduct/user-viewproduct.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserCartComponent } from './user-cart/user-cart.component';
+import { PlaceOrderComponent } from './place-order/place-order.component';
+import { UserViewOrdersComponent } from './user-vieworders/user-vieworders.component';
+import { AdminViewOrdersComponent } from './admin-vieworders/admin-vieworders.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +34,11 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AdminEditproductComponent,
     UserViewproductComponent,
     UserProfileComponent,
-  ],
+    UserCartComponent,
+    PlaceOrderComponent,
+    UserViewOrdersComponent,
+    AdminViewOrdersComponent,
+      ],
   imports: [
     BrowserModule,
     AppRoutingModule,

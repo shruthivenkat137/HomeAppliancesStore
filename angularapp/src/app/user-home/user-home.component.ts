@@ -23,4 +23,7 @@ export class UserHomeComponent implements OnInit {
       (error: any) => console.error(error)
     );
   }
+  logout(){
+    sessionStorage.clear();
+  }
 }

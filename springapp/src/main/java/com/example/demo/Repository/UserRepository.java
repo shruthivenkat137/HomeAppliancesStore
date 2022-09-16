@@ -16,13 +16,17 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByUserName(String userName);
 
-    Optional<User> findById(Long id);
+    Optional<User> findById(Long userId);
 
     Boolean existsByUserName(String userName);
 
     Boolean existsByEmail(String email);
 
-    @Query(value = "select u.id,u.userName,u.phoneno,u.email from users u", nativeQuery = true)
+    @Query(value = "select u.userId,u.userName,u.phoneno,u.email from users u", nativeQuery = true)
     public List<Map<String, Object>> getAllUsers();
+
+    User getByUserId(Long userId);
+
+    User getByUserName(String userName);
 
 }

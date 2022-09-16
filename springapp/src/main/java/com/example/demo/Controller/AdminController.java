@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Model.Product;
+import com.example.demo.Payload.response.ViewOrder;
+import com.example.demo.Services.OrderService;
 import com.example.demo.Services.ProductService;
 
 @CrossOrigin(origins = "*")
@@ -24,6 +26,9 @@ import com.example.demo.Services.ProductService;
 public class AdminController {
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private OrderService orderService;
 
     @PostMapping("/addproduct")
     public Product addproduct(@RequestBody Product product) {
@@ -51,4 +56,8 @@ public class AdminController {
         productService.deleteProduct(productId);
     }
 
+    @GetMapping("/viewOrders")
+    public List<ViewOrder> viewAllOrders() {
+        return orderService.viewAllOrders();
+    }
 }

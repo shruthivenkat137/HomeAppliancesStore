@@ -27,6 +27,9 @@ export class LoginComponent implements OnInit {
         console.log(data);
         if(data.roles[0]=="ROLE_CUSTOMER")
         {
+          
+          sessionStorage.setItem('userId',data.id);
+          sessionStorage.setItem('userName',data.username);
           this.router.navigate(['/user/home']);
         }
         else if(data.roles[0]=="ROLE_ADMIN")

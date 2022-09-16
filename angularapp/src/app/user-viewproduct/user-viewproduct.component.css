@@ -7,13 +7,24 @@
   
   .uv {
     font-weight: 600;
+    font-style: bold;
   }
   
   .btn1 {
-    margin-top: 35%;
+    margin-top: 5%;
+  
   }
   
   .bn {
     margin-left: 4%;
   }
+  .quantity{
+    width: 7%;
+    text-align: center;
+  }
+  
+  
+ 
+  
+  
   

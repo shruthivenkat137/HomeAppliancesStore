@@ -1,136 +1,151 @@
-
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand logo-text booklogo" href="#"><b>HAPP</b><i>'y</i> Store</a>
+    <div class="navbar-collapse offcanvas-collapse">
+      <ul class="navbar-nav ms-auto navbar-nav-scroll">
+        <li class="nav-item">
+          <a class="nav-link white"  [routerLink]="['/user/home']"
+          routerLinkActive="router-link-active" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link white" [routerLink]="['/user/viewOrders']">My Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link white" [routerLink]="['/user/cart']" >Cart</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link white"
+            [routerLink]="['/']"
+            routerLinkActive="router-link-active"
+            (click)="logout()"
+            >Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="content">
   <h5>My Profile</h5>
-  <form (ngSubmit)="onSubmit()" #addcustomer="ngForm">
+  <form (ngSubmit)="onSubmit()" #addcontact="ngForm">
     <div class="row">
       <div class="col-6">
         <label> First Name </label>
-        <br />
         <input
           class="form-control border-dark"
           type="text"
-          [(ngModel)]="customer.firstName"
+          [(ngModel)]="contact.firstName"
           name="firstName"
           #firstName="ngModel"
         />
       </div>
       <div class="col-6">
         <label> Last Name </label>
-        <br />
         <input
           class="form-control border-dark"
           type="text"
-          [(ngModel)]="customer.lastName"
+          [(ngModel)]="contact.lastName"
           name="lastName"
           #lastName="ngModel"
         />
       </div>
-    </div>
-    <div class="row">
+      <div class="row">
         <div class="col-6">
           <label> Email id </label>
-          <br />
           <input
             class="form-control border-dark"
             type="text"
-            [(ngModel)]="customer.emailId"
+            [(ngModel)]="contact.emailId"
             name="emailId"
             #emailId="ngModel"
           />
         </div>
+        
         <div class="col-6">
           <label> Phone Number </label>
-          <br />
+         
           <input
             class="form-control border-dark"
             type="text"
-            [(ngModel)]="customer.phoneno"
+            [(ngModel)]="contact.phoneno"
             name="phoneno"
             #phoneno="ngModel"
           />
         </div>
+       </div> 
+       <div class="row">
+      <div class="col-6">
+        <label> Door/House Number</label>
+        <input
+          class="form-control border-dark"
+          type="text"
+          [(ngModel)]="address.houseNo"
+          name="houseNo"
+          #streetName="ngModel"
+        />
       </div>
-      <div class="row">
-        <div class="col-4">
-          <label> Door No </label>
-          <br />
-          <input
-            class="form-control border-dark"
-            type="text"
-            [(ngModel)]="customer.doorNo"
-            name="doorNo"
-            #doorNo="ngModel"
-          />
-        </div>
-        <div class="col-4">
+      
+        <div class="col-6">
           <label> Street Name </label>
-          <br />
           <input
             class="form-control border-dark"
             type="text"
-            [(ngModel)]="customer.streetName"
+            [(ngModel)]="address.streetName"
             name="streetName"
             #streetName="ngModel"
           />
-        </div>
-        <div class="col-4">
+        </div></div>
+        <div class="row">
+        <div class="col-6">
             <label> Area Name </label>
-            <br />
             <input
               class="form-control border-dark"
               type="text"
-              [(ngModel)]="customer.areaName"
+              [(ngModel)]="address.areaName"
               name="areaName"
               #areaName="ngModel"
             />
           </div>
-      </div>
-      <div class="col-4">
-        <label> Landmark </label>
-        <br />
-        <input
-          class="form-control border-dark"
-          type="text"
-          [(ngModel)]="customer.landmark"
-          name="landmark"
-          #landmark="ngModel"
-        />
-      </div>
-  
-      <div class="row">
-        <div class="col-4">
+    
+        <div class="col-6">
           <label> City </label>
-          <br />
+         
           <input
             class="form-control border-dark"
             type="text"
-            [(ngModel)]="customer.city"
+            [(ngModel)]="address.city"
             name="city"
             #city="ngModel"
           />
-        </div>
-        <div class="col-4">
+        </div></div>
+        <div class="row">
+        <div class="col-6">
           <label> State </label>
-          <br />
+       
           <input
             class="form-control border-dark"
             type="text"
-            [(ngModel)]="customer.state"
+            [(ngModel)]="address.state"
             name="state"
             #state="ngModel"
-          />
-        </div>
-        <div class="col-4">
+          /></div>
+        
+        
+        <div class="col-6">
             <label> Pincode </label>
-            <br />
+            
             <input
               class="form-control border-dark"
               type="text"
-              [(ngModel)]="customer.pincode"
+              [(ngModel)]="address.pincode"
               name="pincode"
               #pincode="ngModel"
             />
           </div>
-      </div>
+        
+      </div></div>
+      <a (click)="onSubmit()" class="btn mt-3 btn1 update"  role="button">Update!</a>
   </form>
 </div>
+

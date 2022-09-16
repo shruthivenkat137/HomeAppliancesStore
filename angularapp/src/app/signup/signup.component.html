@@ -52,14 +52,6 @@
      class="form-control"
      pattern="[A-Za-z]+"
      >
-  <!-- <div 
-  class="alert alert-danger" 
-  role="alert"
-  *ngIf="userName.touched && !userName.valid"
-  >
-  User Name is required!
-
-</div>-->
 </div> 
 </div>
 
@@ -148,12 +140,20 @@
         </div>
       </div>
      -->
-      <div class="row">
+      
       <button class="btn mt-3 btn1"
       [disabled]="!userform.valid"
       type="submit"
       onsubmit="alert('User Registered Successfully!')">
-      Submit</button></div>
+      Submit</button>
+      
+      <p class="loginlink">
+        Already a User?<a  [routerLink]="['/login']" routerLinkActive="router-link-active" >
+          Login!</a
+        ></p>
 </form>
-        </div>
-        </div></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

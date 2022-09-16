@@ -2,7 +2,7 @@
     color: white;
 }
 .content1{
-    background-color: #371B58;
+    /* background-color: #371B58; */
     height: 92.5vh;
     justify-content: center;
     padding-top: 5%;
@@ -28,7 +28,7 @@
 }
 .btn1{
     margin-left: 25%;
-    margin-top: 20%;
+    margin-top: 50%;
 }
 
 .formlog{
@@ -38,3 +38,8 @@ margin-top: 15%;
 .password{
     margin-top: 5%;
 }
+.signuplink {
+    font-weight: 600;
+    margin-top: 5%;
+    margin-left: 15%;
+  }
